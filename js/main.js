@@ -102,6 +102,19 @@ $("document").ready(function () {
                 window.location = 'adminPanel';
             }
         })
+    });
+
+    $('#editMyProfile').submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: 'editMyProfile',
+            type: 'POST',
+            data: $(this).serialize(),
+            success : function (responce) {
+                window.location = 'adminPanel';
+            }
+        })
     })
 });
 

@@ -145,6 +145,41 @@ class User
         }
     }
 
+
+    public function getUserById($id)
+    {
+        try {
+            $connection = Db::getConnection();
+
+            $stmt = $connection->prepare("SELECT * FROM Users WHERE id = :id");
+            $stmt->execute([':id' => $id]);
+
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+            die();
+        }
+    }
+
+    public function editMyProfile($id, $name, $age, $description)
+    {
+        try {
+            $connection = Db::getConnection();
+            $query = "UPDATE Users SET name = :name, age = :age, description = :description WHERE id = :userId";
+
+            $stmt = $connection->prepare($query);
+            $stmt->execute([
+                ':name' => $name,
+                ':age' => $age,
+                ':description' => $description,
+                ':userId' => $id
+            ]);
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+            die();
+        }
+    }
+
     public function isFreeLogin($login) : bool
     {
         try {

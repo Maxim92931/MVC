@@ -30,11 +30,15 @@ body {
     visibility: hidden;
 }
 
-.users, .files{
+.users, .files, .editMyProfile{
     display: inline-block;
     margin-left: 20px;
 }
 .addFile, .setAvatar{
     margin-left: 20px;
+}
+
+.editMyProfile input {
+    width: 200px;
 }
 

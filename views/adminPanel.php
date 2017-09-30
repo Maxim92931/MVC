@@ -46,7 +46,7 @@
                     <tr>
                         <td><?php echo $user['id'] ?></td>
                         <td><?php echo $user['name'] ?></td>
-                        <td><?php echo $user['age']; if ($user['age'] > 18) echo ' - совершеннолетний';
+                        <td><?php echo $user['age']; if ($user['age'] > 17) echo ' - совершеннолетний';
                         else echo ' - несовершеннолетний'?></td>
                         <td><?php echo $user['description'] ?></td>
                         <td><?php echo $user['photo'] ?></td>
@@ -76,6 +76,39 @@
         </table>
     </div>
 
+    <div class="editMyProfile">
+        <h2>Мой профиль</h2>
+
+        <form class="form-horizontal" id="editMyProfile">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Имя</label>
+                <div class="col-sm-10">
+                    <input name="name" class="form-control" id="inputEmail3" placeholder="Имя"
+                           value="<?php echo $currentUser['name']?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Возраст</label>
+                <div class="col-sm-10">
+                    <input type="number" name="age" class="form-control" id="inputPassword3" placeholder="Возраст"
+                           value="<?php echo $currentUser['age']?>">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Описание</label>
+                <div class="col-sm-10">
+                    <textarea name="description" class="form-control" placeholder="Описание" cols="120" rows="5"><?php echo $currentUser['description']?></textarea>
+                </div>
+            </div>
+
+            <div class="col-sm-offset-2 col-sm-10">
+                <button id="saveProfile" class="btn btn-default">Сохранить</button>
+            </div>
+        </form>
+
+    </div>
+
     <div class="addFile">
         <h2>Загрузить файл</h2>
         <form enctype="multipart/form-data">
@@ -103,7 +136,7 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Логин</label>
                 <div class="col-sm-10">
-                    <input type="text" name="login" class="form-control" id="inputEmail3" placeholder="Логин">
+                    <input name="login" class="form-control" id="inputEmail3" placeholder="Логин">
                     <p class="checkLogin"></p>
                 </div>
             </div>

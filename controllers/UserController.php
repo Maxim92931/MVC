@@ -93,8 +93,21 @@ class UserController
         $user = new User();
         $users = $user->getAllUsers('ASC');
         $files = $user->getAllFiles($userId);
+        $currentUser = $user->getUserById($userId);
 
         require_once $_SERVER['DOCUMENT_ROOT'] . '/views/adminPanel.php';
+    }
+
+    public function editMyProfile()
+    {
+        $user = new User;
+
+        $id = $_SESSION['user'];
+        $name = $_POST['name'];
+        $age = $_POST['age'];
+        $description = $_POST['description'];
+
+        $user->editMyProfile($id, $name, $age, $description);
     }
 
     public function addFile()

@@ -8,5 +8,6 @@ return array(
     'addFile' => 'user/addFile',
     'setAvatar' => 'user/setAvatar',
     'checkLogin' => 'user/checkLogin',
-    'createUser' => 'user/createUser'
+    'createUser' => 'user/createUser',
+    'editMyProfile' => 'user/editMyProfile'
 );
